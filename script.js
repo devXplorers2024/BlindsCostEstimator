@@ -14,23 +14,55 @@ const priceList = {
 const widths = [610, 760, 910, 1060, 1210, 1360, 1510, 1660, 1810, 1960, 2110, 2260, 2410, 2560, 2710, 2860, 3010];
 const heights = [600, 900, 1200, 1500, 1800, 2100, 2400, 2700, 3000, 3300];
 
+let entries = [];
+
 function findClosest(value, array) {
     return array.find((item, index) => value <= item || index === array.length - 1);
 }
 
-function calculatePrice() {
-    const widthInput = parseInt(document.getElementById('width').value);
-    const heightInput = parseInt(document.getElementById('height').value);
-    const discountInput = parseFloat(document.getElementById('discount').value) || 0; // Default to 0 if empty or invalid
-
-    const closestWidth = findClosest(widthInput, widths);
-    const closestHeight = findClosest(heightInput, heights);
+function calculatePrice(width, height, discount) {
+    const closestWidth = findClosest(width, widths);
+    const closestHeight = findClosest(height, heights);
 
     const widthIndex = widths.indexOf(closestWidth);
     const heightKey = closestHeight.toString();
 
     const price = priceList[heightKey][widthIndex];
-    const discountedPrice = price * (1 - discountInput / 100);
+    const discountedPrice = price * (1 - discount / 100);
 
-    document.getElementById('result').innerText = `Calculated Price: ${discountedPrice.toFixed(2)}`;
+    return discountedPrice.toFixed(2);
+}
+
+function addEntry() {
+    const widthInput = parseInt(document.getElementById('width').value);
+    const heightInput = parseInt(document.getElementById('height').value);
+    const discountInput = parseFloat(document.getElementById('discount').value) || 0;
+
+    if (isNaN(widthInput) || isNaN(heightInput)) {
+        alert("Please enter valid width and height.");
+        return;
+    }
+
+    const price = calculatePrice(widthInput, heightInput, discountInput);
+    const entry = { width: widthInput, height: heightInput, discount: discountInput, price: price };
+    entries.push(entry);
+
+    const entryList = document.getElementById('entryList');
+    const entryDiv = document.createElement('div');
+    entryDiv.className = 'entry';
+    entryDiv.innerHTML = `
+        <strong>Window ${entries.length}:</strong>
+        Width: ${entry.width} mm, Height: ${entry.height} mm, Discount: ${entry.discount}%, Price: $${entry.price}
+    `;
+    entryList.appendChild(entryDiv);
+
+    // Clear input fields
+    document.getElementById('width').value = '';
+    document.getElementById('height').value = '';
+    document.getElementById('discount').value = '';
+}
+
+function calculateTotal() {
+    const total = entries.reduce((sum, entry) => sum + parseFloat(entry.price), 0);
+    document.getElementById('totalResult').innerText = `Total Price: $${total.toFixed(2)}`;
 }
