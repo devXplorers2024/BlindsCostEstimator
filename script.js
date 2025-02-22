@@ -47,14 +47,8 @@ function addEntry() {
     const entry = { width: widthInput, height: heightInput, discount: discountInput, price: price };
     entries.push(entry);
 
-    const entryList = document.getElementById('entryList');
-    const entryDiv = document.createElement('div');
-    entryDiv.className = 'entry';
-    entryDiv.innerHTML = `
-        <strong>Window ${entries.length}:</strong>
-        Width: ${entry.width} mm, Height: ${entry.height} mm, Discount: ${entry.discount}%, Price: $${entry.price}
-    `;
-    entryList.appendChild(entryDiv);
+    renderEntries();
+    updateTotal();
 
     // Clear input fields
     document.getElementById('width').value = '';
@@ -62,7 +56,47 @@ function addEntry() {
     document.getElementById('discount').value = '';
 }
 
-function calculateTotal() {
-    const total = entries.reduce((sum, entry) => sum + parseFloat(entry.price), 0);
-    document.getElementById('totalResult').innerText = `Total Price: $${total.toFixed(2)}`;
+function renderEntries() {
+    const entryList = document.getElementById('entryList');
+    entryList.innerHTML = ''; // Clear existing entries
+
+    entries.forEach((entry, index) => {
+        const entryRow = document.createElement('tr');
+        entryRow.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${entry.width} mm</td>
+            <td>${entry.height} mm</td>
+            <td>${entry.discount}%</td>
+            <td>$${entry.price}</td>
+            <td>
+                <button class="btn btn-danger btn-sm" onclick="deleteEntry(${index})">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        `;
+        entryList.appendChild(entryRow);
+    });
+}
+
+function deleteEntry(index) {
+    entries.splice(index, 1); // Remove the entry
+    renderEntries(); // Re-render the entries
+    updateTotal(); // Update the total
+}
+
+function updateTotal() {
+    const subtotal = entries.reduce((sum, entry) => sum + parseFloat(entry.price), 0);
+    const gst = subtotal * 0.10; // 10% GST
+    const grandTotal = subtotal + gst;
+
+    document.getElementById('totalResult').innerHTML = `
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Total Summary</h5>
+                <p class="card-text"><strong>Subtotal:</strong> $${subtotal.toFixed(2)}</p>
+                <p class="card-text"><strong>GST (10%):</strong> $${gst.toFixed(2)}</p>
+                <p class="card-text"><strong>Grand Total:</strong> $${grandTotal.toFixed(2)}</p>
+            </div>
+        </div>
+    `;
 }
