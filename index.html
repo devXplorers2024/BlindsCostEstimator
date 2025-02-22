@@ -21,13 +21,16 @@
             </div>
             <div class="mb-3">
                 <label for="discount" class="form-label">Discount (%):</label>
-                <input type="number" class="form-control" id="discount" name="discount" required>
+                <input type="number" class="form-control" id="discount" name="discount">
             </div>
-            <button type="button" class="btn btn-primary" onclick="calculatePrice()">Calculate</button>
+            <button type="button" class="btn btn-primary" onclick="addEntry()">Add</button>
         </form>
-        <h2 class="mt-4 text-center" id="result"></h2>
+        <div id="entryList" class="mt-4"></div>
+        <button type="button" class="btn btn-success mt-3" onclick="calculateTotal()">Calculate Total</button>
+        <h2 class="mt-4 text-center" id="totalResult"></h2>
     </div>
 
+    <!-- Include the JavaScript file -->
     <script src="script.js"></script>
     <!-- Bootstrap JS and Popper.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
