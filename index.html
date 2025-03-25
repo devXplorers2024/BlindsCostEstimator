@@ -21,6 +21,16 @@
         .content {
             flex: 1;
         }
+        .disclaimer {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+            font-style: italic;
+            color: #6c757d;
+        }
     </style>
 </head>
 <body class="d-flex flex-column">
@@ -28,14 +38,14 @@
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Shutter Calculator</a>
+                <a class="navbar-brand" href="index.html">VPS Calculator</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Price Calculator</a>
+                            <a class="nav-link active" aria-current="page" href="index.html">Blinds Calculator</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./ShutterWholesale/plantation_shutter.html">Plantation Shutter Wholesale Calculator</a>
@@ -47,7 +57,7 @@
 
         <div class="content">
             <div class="container mt-5">
-                <h1 class="text-center">Price Calculator</h1>
+                <h1 class="text-center">Blinds Calculator</h1>
                 <form id="priceForm" class="mt-4">
                     <div class="mb-3">
                         <label for="width" class="form-label">Width (mm):</label>
@@ -88,6 +98,11 @@
 
                 <!-- Total Summary -->
                 <div id="totalResult" class="mt-4"></div>
+                
+                <!-- Disclaimer Section -->
+                <div class="disclaimer">
+                    <p>This is just for estimation, actual price may vary.</p>
+                </div>
             </div>
         </div>
 
