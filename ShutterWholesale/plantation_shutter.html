@@ -44,7 +44,11 @@
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.html">VPS Calculator</a>
+                <a class="navbar-brand d-flex align-items-center gap-2" href="https://www.vicplantationshutters.com" target="_blank">
+                    <i class="bi bi-shop fs-4"></i>
+                    VPS Calculator
+                </a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -83,6 +87,30 @@
                             <!-- PVC Result -->
                             <div id="pvcResult" class="mt-4"></div>
                         </div>
+                        <!-- Entries Table -->
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Entries</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Width</th>
+                    <th>Height</th>
+                    <th>Area</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="pvcEntryList">
+                <!-- Entries will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Total Summary -->
+<div id="pvcTotalResult" class="mt-4"></div>
                     </div>
 
                     <!-- Wood Calculator Box -->
@@ -103,6 +131,31 @@
                             <!-- Wood Result -->
                             <div id="woodResult" class="mt-4"></div>
                         </div>
+                        <!-- Entries Table -->
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Entries</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Width</th>
+                    <th>Height</th>
+                    <th>Area</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="woodEntryList">
+                <!-- Entries will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+                        
+                    </div>
+
+                    <!-- Total Summary -->
+                <div id="woodTotalResult" class="mt-4"></div>
                     </div>
                 </div>
                 
