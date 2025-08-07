@@ -58,11 +58,10 @@
                             <a class="nav-link" href="../index.html">Blinds Calculator</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="plantation_shutter.html">Plantation Shutter Wholesale Calculator</a>
+                            <a class="nav-link active" aria-current="page" href="../ShutterWholesale/plantation_shutter.html">Plantation Shutter Wholesale Calculator</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../SheerCurtain/Sheer_Curtain.html
-                            ">Sheer Curtain Calculator</a>
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="Sheer_Curtain.html">Plantation Shutter Wholesale Calculator</a>
                         </li>
                     </ul>
                 </div>
@@ -71,101 +70,51 @@
 
         <div class="content">
             <div class="container mt-5">
-                <h1 class="text-center">Plantation Shutter Wholesale Calculator</h1>
-                <div class="row mt-4">
-                    <!-- PVC Calculator Box -->
+                <h1 class="text-center">Sheer Curtain Calculator</h1>
+                <div class="row justify-content-center mt-4">
+                    <!-- PVC Calculator Box Centered -->
                     <div class="col-md-6">
                         <div class="calculator-box">
-                            <h3 class="text-center">PVC Calculator</h3>
+                            <h3 class="text-center">Sheer Curtain Calculator</h3>
                             <form id="pvcForm" class="mt-4">
                                 <div class="mb-3">
-                                    <label for="pvcWidth" class="form-label">Width (mm):</label>
+                                    <label for="pvcWidth" class="form-label">Width (m):</label>
                                     <input type="number" class="form-control" id="pvcWidth" name="pvcWidth" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="pvcHeight" class="form-label">Height (mm):</label>
-                                    <input type="number" class="form-control" id="pvcHeight" name="pvcHeight" required>
                                 </div>
                                 <button type="button" class="btn btn-primary w-100" onclick="calculatePvcPrice()">Calculate PVC Price</button>
                             </form>
                             <!-- PVC Result -->
                             <div id="pvcResult" class="mt-4"></div>
                         </div>
+
                         <!-- Entries Table -->
-<div class="card mt-4">
-    <div class="card-body">
-        <h5 class="card-title">Entries</h5>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Width</th>
-                    <th>Height</th>
-                    <th>Area</th>
-                    <th>Price</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="pvcEntryList">
-                <!-- Entries will be dynamically added here -->
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<!-- Total Summary -->
-<div id="pvcTotalResult" class="mt-4"></div>
-                    </div>
-
-                    <!-- Wood Calculator Box -->
-                    <div class="col-md-6">
-                        <div class="calculator-box">
-                            <h3 class="text-center">Wood Calculator</h3>
-                            <form id="woodForm" class="mt-4">
-                                <div class="mb-3">
-                                    <label for="woodWidth" class="form-label">Width (mm):</label>
-                                    <input type="number" class="form-control" id="woodWidth" name="woodWidth" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="woodHeight" class="form-label">Height (mm):</label>
-                                    <input type="number" class="form-control" id="woodHeight" name="woodHeight" required>
-                                </div>
-                                <button type="button" class="btn btn-success w-100" onclick="calculateWoodPrice()">Calculate Wood Price</button>
-                            </form>
-                            <!-- Wood Result -->
-                            <div id="woodResult" class="mt-4"></div>
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Entries</h5>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Width</th>
+                                            <th>Price</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pvcEntryList">
+                                        <!-- Entries will be dynamically added here -->
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <!-- Entries Table -->
-<div class="card mt-4">
-    <div class="card-body">
-        <h5 class="card-title">Entries</h5>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Width</th>
-                    <th>Height</th>
-                    <th>Area</th>
-                    <th>Price</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="woodEntryList">
-                <!-- Entries will be dynamically added here -->
-            </tbody>
-        </table>
-    </div>
-                        
-                    </div>
 
-                    <!-- Total Summary -->
-                <div id="woodTotalResult" class="mt-4"></div>
+                        <!-- Total Summary -->
+                        <div id="pvcTotalResult" class="mt-4"></div>
                     </div>
                 </div>
-                
+
                 <!-- Disclaimer Section -->
                 <div class="disclaimer">
-                    <p>Note: Order under 1 sq m will be charged at 1 sq m</p>
+                    <p>Note: MAX Height 3 meters</p>
                 </div>
             </div>
         </div>
@@ -179,7 +128,7 @@
     </div>
 
     <!-- Include the JavaScript file -->
-    <script src="plantation_shutter.js"></script>
+    <script src="Sheer_Curtain.js"></script>
     <!-- Bootstrap JS and Popper.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
