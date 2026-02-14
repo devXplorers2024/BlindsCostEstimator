@@ -13,7 +13,7 @@ function calculatePvcPrice() {
 
     // Convert mm to meters
     const pvcArea = (pvcWidth / 1000) * (pvcHeight / 1000); // Area in square meters
-    const pvcPricePerSqm = 185; // Price per square meter for PVC
+    const pvcPricePerSqm = 260; // Price per square meter for PVC
     const pvcTotal = pvcArea * pvcPricePerSqm;
 
     pvcEntries.push({width: pvcWidth, height: pvcHeight, area: pvcArea.toFixed(2), total: pvcTotal.toFixed(2)})
@@ -45,7 +45,7 @@ function calculateWoodPrice() {
 
     // Convert mm to meters
     const woodArea = (woodWidth / 1000) * (woodHeight / 1000); // Area in square meters
-    const woodPricePerSqm = 195; // Price per square meter for Wood
+    const woodPricePerSqm = 310; // Price per square meter for Wood
     const woodTotal = woodArea * woodPricePerSqm;
 
     woodEntries.push({width: woodWidth, height: woodHeight, area: woodArea.toFixed(2), total: woodTotal.toFixed(2)})
@@ -92,17 +92,18 @@ function renderEntries(element, entries) {
 
 function updateTotal(element, entries) {
     const subtotal = entries.reduce((sum, entry) => sum + parseFloat(entry.total), 0);
+    const totalArea = entries.reduce((sum, entry) => sum + parseFloat(entry.area), 0);
 
     document.getElementById(element).innerHTML = `
         <div class="card mt-4">
             <div class="card-body">
                 <h5 class="card-title">Total Summary</h5>
+                <p class="card-text"><strong>Total Area:</strong> ${totalArea.toFixed(2)} m²</p>
                 <p class="card-text"><strong>Grand Total:</strong> $${subtotal.toFixed(2)}</p>
             </div>
         </div>
     `;
 }
-
 
 function deleteEntry(index, element) {
     debugger
